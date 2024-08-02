@@ -17,7 +17,7 @@ jobs:
           python-version: '3.9'
       - name: Install dependencies
         run: |
-          pip install -r Requirement.txt
+          pip install -r requirement.txt
       - name: Run training
         run: |
           python app.py &
