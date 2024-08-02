@@ -20,7 +20,7 @@ jobs:
           pip install -r requirement.txt
       - name: Run training
         run: |
-          python app.py &
+          python liverdisease_app.py &
           sleep 10
       - name: Test prediction
         run: |
