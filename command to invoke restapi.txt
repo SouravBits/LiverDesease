@@ -1,0 +1,5 @@
+command to invoke restapi associated with liverdisease model
+
+Invoke-RestMethod -Uri http://127.0.0.1:5000/predict -Method POST -ContentType "application/json" -Body '{"features": [65, 0.1, 187, 18,3.3]}'
+Invoke-RestMethod -Uri http://127.0.0.1:5000/predict -Method POST -ContentType "application/json" -Body '{"features": [17, 0.3, 202, 19,4.1]}'
+
