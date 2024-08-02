@@ -1,0 +1,29 @@
+name: model_train
+permissions:
+  id-token: write
+  contents: write
+
+on:
+  push:
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Install dependencies
+        run: |
+          pip install -r Requirement.txt
+      - name: Run training
+        run: |
+          python app.py &
+          sleep 10
+      - name: Test prediction
+        run: |
+          curl -X POST http://127.0.0.1:5000/predict \
+            -H "Content-Type: application/json" \
+            -d '{"features": [65, 0.1, 187, 18,3.3]}'
